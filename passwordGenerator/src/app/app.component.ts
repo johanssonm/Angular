@@ -7,29 +7,72 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  
+  amountOfChars:number = 0;
   password:string = '';
   useLetters:boolean = false;
   useNumbers:boolean = false;
   useSymbols:boolean = false;
+  message:string = '';
 
-  onChangeUserLetters(){
+  onChangeLength(value: string){
+    this.message = '';
+
+    let number = parseInt(value);
+
+    if(!isNaN(number)){
+      this.amountOfChars = parseInt(value);
+    }
+
+    else{
+      this.message =  value + ' is not a number';
+    }
+
+  }
+
+  onChangeUseLetters(){
     this.useLetters = !this.useLetters;
   }
 
-  onChangeUserNumbers(){
+  onChangeUseNumbers(){
     this.useNumbers = !this.useNumbers;
   }
-  onChangeUserSymbols(){
+  onChangeUseSymbols(){
     this.useSymbols = !this.useSymbols;
   }
 
 
 
   onButtonClick() {
-    console.log(this.useLetters);
-    console.log(this.useNumbers);
-    console.log(this.useSymbols);
-    this.password = 'My password';
+
+    const numbers = '123456789'
+    const letters = 'abcdefghijklmnopqrstuvwxyzåäö'
+    const symbols = '!@#$%*&*()'
+    
+    let validChars = '';
+
+    if(this.useLetters){
+      validChars += letters;
+    }
+
+    if(this.useNumbers){
+      validChars += numbers;
+    }
+
+    if(this.useSymbols){
+      validChars += symbols;
+    }
+
+    let generatedPassword = '';
+
+    if(this.amountOfChars > 0){
+      for(let i = 0; i < this.amountOfChars; i++){
+        const index = Math.floor(Math.random() * validChars.length)
+        generatedPassword += validChars[index];
+      }
+    }
+
+
+    this.password = generatedPassword;
   }
 
   
