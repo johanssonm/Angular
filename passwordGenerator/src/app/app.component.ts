@@ -6,5 +6,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'passwordGenerator';
+ 
+  password:string = '';
+  useLetters:boolean = false;
+  useNumbers:boolean = false;
+  useSymbols:boolean = false;
+
+  onChangeUserLetters(){
+    this.useLetters = !this.useLetters;
+  }
+
+  onChangeUserNumbers(){
+    this.useNumbers = !this.useNumbers;
+  }
+  onChangeUserSymbols(){
+    this.useSymbols = !this.useSymbols;
+  }
+
+
+
+  onButtonClick() {
+    console.log(this.useLetters);
+    console.log(this.useNumbers);
+    console.log(this.useSymbols);
+    this.password = 'My password';
+  }
+
+  
+
+
 }
