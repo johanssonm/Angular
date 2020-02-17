@@ -7,16 +7,21 @@
         <hr /> 
 
         <p class="has-text-centered">
-          {{ randomText }}
+        <span 
+          [class]="validateInput(char, inputText[i])" 
+          *ngFor="let char of randomText.split(''); let i = index;"
+        >{{ 
+          char 
+        }}</span>
         </p>
 
         <hr />
 
         <div class="field">
-          <input (input)="onInput($event.target.value)" class="input" />
+          <input (input)="isSuccess($event.target.value)" class="input" />
         </div>
 
-      <div class="box has-text-centered">
+      <div *ngIf="success" class="box has-text-centered">
         <h2 class="title">Success!</h2>
       </div>
        
