@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+
+        <h1 class="title has-text-centered">Typing challenge</h1>
+        
+        <hr /> 
+
+        <p class="has-text-centered">
+        <span 
+          [class]="validateInput(char, inputText[i])" 
+          *ngFor="let char of randomText.split(''); let i = index;"
+        >{{ 
+          char 
+        }}</span>
+        </p>
+
+        <hr />
+
+        <div class="field">
+          <input (input)="isSuccess($event.target.value)" class="input" />
+        </div>
+
+      <div *ngIf="success" class="box has-text-centered">
+        <h2 class="title">Success!</h2>
+      </div>
+       
+    </div>
+  </div>
+</div>
