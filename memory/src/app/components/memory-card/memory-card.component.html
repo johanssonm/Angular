@@ -1,0 +1,8 @@
+<div class="memory-card" 
+(click)="selectCard($event.target);" 
+
+*ngFor="let card of cards"
+>
+    <div class="card-front">{{ card.content }} front</div>
+    <div class="card-back">{{ card.content }} back</div>
+</div>

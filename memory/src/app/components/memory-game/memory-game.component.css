@@ -1,0 +1,13 @@
+* {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding:1em;
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+    perspective: 1000px;
+}
